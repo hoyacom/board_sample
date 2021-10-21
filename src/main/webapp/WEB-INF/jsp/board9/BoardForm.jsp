@@ -23,7 +23,7 @@ function fn_formSubmit(){
 	
 	$("#form1").submit();
 } 
-</script> s
+</script>
 </head>
 <body>
 	<h1><c:out value="${bgInfo.bgname}"/></h1>	
