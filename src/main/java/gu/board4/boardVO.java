@@ -1,95 +1,116 @@
 package gu.board4;
 
 import java.util.List;
+
 import org.springframework.web.multipart.MultipartFile;
 
 import gu.common.utiletc;
 
-public class boardVO {
+public class boardVO
+{
 
-    private String brdno, brdtitle, brdwriter, brdmemo, brddate, brdhit, brddeleteflag
-    			 , filecnt;
+  private String              brdno, brdtitle, brdwriter, brdmemo, brddate, brdhit, brddeleteflag,
+      filecnt;
 
-	/* 첨부파일 */
-	private List<MultipartFile> uploadfile;
+  /* 첨부파일 */
+  private List<MultipartFile> uploadfile;
 
-	/**
-	 * 게시물 제목을 글자수에 맞추어 자르기
-	 */
-	public String getShortTitle(Integer len){
-		return utiletc.getShortString(brdtitle, len);
-	}
-	
-	public String getBrdno() {
-		return brdno;
-	}
+  /**
+   * 게시물 제목을 글자수에 맞추어 자르기
+   */
+  public String getShortTitle(Integer len)
+  {
+    return utiletc.getShortString(brdtitle, len);
+  }
 
-	public void setBrdno(String brdno) {
-		this.brdno = brdno;
-	}
+  public String getBrdno()
+  {
+    return brdno;
+  }
 
-	public String getBrdtitle() {
-		return brdtitle; 
-	}
+  public void setBrdno(String brdno)
+  {
+    this.brdno = brdno;
+  }
 
-	public void setBrdtitle(String brdtitle) {
-		this.brdtitle = brdtitle;
-	}
+  public String getBrdtitle()
+  {
+    return brdtitle;
+  }
 
-	public String getBrdwriter() {
-		return brdwriter;
-	}
+  public void setBrdtitle(String brdtitle)
+  {
+    this.brdtitle = brdtitle;
+  }
 
-	public void setBrdwriter(String brdwriter) {
-		this.brdwriter = brdwriter;
-	}
+  public String getBrdwriter()
+  {
+    return brdwriter;
+  }
 
-	public String getBrdmemo() {
-		return brdmemo.replaceAll("(?i)<script", "&lt;script");
-	}
+  public void setBrdwriter(String brdwriter)
+  {
+    this.brdwriter = brdwriter;
+  }
 
-	public void setBrdmemo(String brdmemo) {
-		this.brdmemo = brdmemo;
-	}
+  public String getBrdmemo()
+  {
+    return brdmemo.replaceAll("(?i)<script", "&lt;script");
+  }
 
-	public String getBrddate() {
-		return brddate;
-	}
+  public void setBrdmemo(String brdmemo)
+  {
+    this.brdmemo = brdmemo;
+  }
 
-	public void setBrddate(String brddate) {
-		this.brddate = brddate;
-	}
+  public String getBrddate()
+  {
+    return brddate;
+  }
 
-	public String getBrdhit() {
-		return brdhit;
-	}
+  public void setBrddate(String brddate)
+  {
+    this.brddate = brddate;
+  }
 
-	public void setBrdhit(String brdhit) {
-		this.brdhit = brdhit;
-	}
+  public String getBrdhit()
+  {
+    return brdhit;
+  }
 
-	public String getBrddeleteflag() {
-		return brddeleteflag;
-	}
+  public void setBrdhit(String brdhit)
+  {
+    this.brdhit = brdhit;
+  }
 
-	public void setBrddeleteflag(String brddeleteflag) {
-		this.brddeleteflag = brddeleteflag;
-	}
+  public String getBrddeleteflag()
+  {
+    return brddeleteflag;
+  }
 
-	public List<MultipartFile> getUploadfile() {
-		return uploadfile;
-	}
+  public void setBrddeleteflag(String brddeleteflag)
+  {
+    this.brddeleteflag = brddeleteflag;
+  }
 
-	public void setUploadfile(List<MultipartFile> uploadfile) {
-		this.uploadfile = uploadfile;
-	}
+  public List<MultipartFile> getUploadfile()
+  {
+    return uploadfile;
+  }
 
-	public String getFilecnt() {
-		return filecnt;
-	}
+  public void setUploadfile(List<MultipartFile> uploadfile)
+  {
+    this.uploadfile = uploadfile;
+  }
 
-	public void setFilecnt(String filecnt) {
-		this.filecnt = filecnt;
-	}
-	
+  public String getFilecnt()
+  {
+    return filecnt;
+  }
+
+  public void setFilecnt(String filecnt)
+  {
+    this.filecnt = filecnt;
+  }
+
 }

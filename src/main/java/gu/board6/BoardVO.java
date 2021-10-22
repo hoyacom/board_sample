@@ -1,111 +1,133 @@
 package gu.board6;
 
 import java.util.List;
+
 import org.springframework.web.multipart.MultipartFile;
 
 import gu.common.utiletc;
 
-public class BoardVO {
+public class BoardVO
+{
 
-    private String brdno;
-    private String brdtitle; 
-    private String brdwriter; 
-    private String brdmemo; 
-    private String brddate; 
-    private String brdhit; 
-    private String brddeleteflag; 
-    private String filecnt;
-    private String replycnt;
-    
-    
-    /* 첨부파일 */
-    private List<MultipartFile> uploadfile;
+  private String              brdno;
+  private String              brdtitle;
+  private String              brdwriter;
+  private String              brdmemo;
+  private String              brddate;
+  private String              brdhit;
+  private String              brddeleteflag;
+  private String              filecnt;
+  private String              replycnt;
 
-    /**
-     * 게시물 제목을 글자수에 맞추어 자르기.
-     */
-    public String getShortTitle(Integer len) {
-        return utiletc.getShortString(brdtitle, len);
-    }
-    
-    public String getBrdno() {
-        return brdno;
-    }
+  /* 첨부파일 */
+  private List<MultipartFile> uploadfile;
 
-    public void setBrdno(String brdno) {
-        this.brdno = brdno;
-    }
+  /**
+   * 게시물 제목을 글자수에 맞추어 자르기.
+   */
+  public String getShortTitle(Integer len)
+  {
+    return utiletc.getShortString(brdtitle, len);
+  }
 
-    public String getBrdtitle() {
-        return brdtitle; 
-    }
+  public String getBrdno()
+  {
+    return brdno;
+  }
 
-    public void setBrdtitle(String brdtitle) {
-        this.brdtitle = brdtitle;
-    }
+  public void setBrdno(String brdno)
+  {
+    this.brdno = brdno;
+  }
 
-    public String getBrdwriter() {
-        return brdwriter;
-    }
+  public String getBrdtitle()
+  {
+    return brdtitle;
+  }
 
-    public void setBrdwriter(String brdwriter) {
-        this.brdwriter = brdwriter;
-    }
+  public void setBrdtitle(String brdtitle)
+  {
+    this.brdtitle = brdtitle;
+  }
 
-    public String getBrdmemo() {
-        return brdmemo.replaceAll("(?i)<script", "&lt;script");
-    }
+  public String getBrdwriter()
+  {
+    return brdwriter;
+  }
 
-    public void setBrdmemo(String brdmemo) {
-        this.brdmemo = brdmemo;
-    }
+  public void setBrdwriter(String brdwriter)
+  {
+    this.brdwriter = brdwriter;
+  }
 
-    public String getBrddate() {
-        return brddate;
-    }
+  public String getBrdmemo()
+  {
+    return brdmemo.replaceAll("(?i)<script", "&lt;script");
+  }
 
-    public void setBrddate(String brddate) {
-        this.brddate = brddate;
-    }
+  public void setBrdmemo(String brdmemo)
+  {
+    this.brdmemo = brdmemo;
+  }
 
-    public String getBrdhit() {
-        return brdhit;
-    }
+  public String getBrddate()
+  {
+    return brddate;
+  }
 
-    public void setBrdhit(String brdhit) {
-        this.brdhit = brdhit;
-    }
+  public void setBrddate(String brddate)
+  {
+    this.brddate = brddate;
+  }
 
-    public String getBrddeleteflag() {
-        return brddeleteflag;
-    }
+  public String getBrdhit()
+  {
+    return brdhit;
+  }
 
-    public void setBrddeleteflag(String brddeleteflag) {
-        this.brddeleteflag = brddeleteflag;
-    }
+  public void setBrdhit(String brdhit)
+  {
+    this.brdhit = brdhit;
+  }
 
-    public List<MultipartFile> getUploadfile() {
-        return uploadfile;
-    }
+  public String getBrddeleteflag()
+  {
+    return brddeleteflag;
+  }
 
-    public void setUploadfile(List<MultipartFile> uploadfile) {
-        this.uploadfile = uploadfile;
-    }
+  public void setBrddeleteflag(String brddeleteflag)
+  {
+    this.brddeleteflag = brddeleteflag;
+  }
 
-    public String getFilecnt() {
-        return filecnt;
-    }
+  public List<MultipartFile> getUploadfile()
+  {
+    return uploadfile;
+  }
 
-    public void setFilecnt(String filecnt) {
-        this.filecnt = filecnt;
-    }
+  public void setUploadfile(List<MultipartFile> uploadfile)
+  {
+    this.uploadfile = uploadfile;
+  }
 
-    public String getReplycnt() {
-        return replycnt;
-    }
+  public String getFilecnt()
+  {
+    return filecnt;
+  }
 
-    public void setReplycnt(String replycnt) {
-        this.replycnt = replycnt;
-    }
-    
+  public void setFilecnt(String filecnt)
+  {
+    this.filecnt = filecnt;
+  }
+
+  public String getReplycnt()
+  {
+    return replycnt;
+  }
+
+  public void setReplycnt(String replycnt)
+  {
+    this.replycnt = replycnt;
+  }
+
 }

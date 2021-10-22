@@ -2,71 +2,87 @@ package gu.board3;
 
 import gu.common.utiletc;
 
-public class boardVO {
+public class boardVO
+{
 
-    private String brdno, brdtitle, brdwriter, brdmemo, brddate, brdhit, brddeleteflag;
+  private String brdno, brdtitle, brdwriter, brdmemo, brddate, brdhit, brddeleteflag;
 
-	/**
-	 * 게시물 제목을 글자수에 맞추어 자르기
-	 */
-	public String getShortTitle(Integer len){
-		return utiletc.getShortString(brdtitle, len);
-	}
-	
-	public String getBrdno() {
-		return brdno;
-	}
+  /**
+   * 게시물 제목을 글자수에 맞추어 자르기
+   */
+  public String getShortTitle(Integer len)
+  {
+    return utiletc.getShortString(brdtitle, len);
+  }
 
-	public void setBrdno(String brdno) {
-		this.brdno = brdno;
-	}
+  public String getBrdno()
+  {
+    return brdno;
+  }
 
-	public String getBrdtitle() {
-		return brdtitle; 
-	}
+  public void setBrdno(String brdno)
+  {
+    this.brdno = brdno;
+  }
 
-	public void setBrdtitle(String brdtitle) {
-		this.brdtitle = brdtitle;
-	}
+  public String getBrdtitle()
+  {
+    return brdtitle;
+  }
 
-	public String getBrdwriter() {
-		return brdwriter;
-	}
+  public void setBrdtitle(String brdtitle)
+  {
+    this.brdtitle = brdtitle;
+  }
 
-	public void setBrdwriter(String brdwriter) {
-		this.brdwriter = brdwriter;
-	}
+  public String getBrdwriter()
+  {
+    return brdwriter;
+  }
 
-	public String getBrdmemo() {
-		return brdmemo.replaceAll("(?i)<script", "&lt;script");
-	}
+  public void setBrdwriter(String brdwriter)
+  {
+    this.brdwriter = brdwriter;
+  }
 
-	public void setBrdmemo(String brdmemo) {
-		this.brdmemo = brdmemo;
-	}
+  public String getBrdmemo()
+  {
+    return brdmemo.replaceAll("(?i)<script", "&lt;script");
+  }
 
-	public String getBrddate() {
-		return brddate;
-	}
+  public void setBrdmemo(String brdmemo)
+  {
+    this.brdmemo = brdmemo;
+  }
 
-	public void setBrddate(String brddate) {
-		this.brddate = brddate;
-	}
+  public String getBrddate()
+  {
+    return brddate;
+  }
 
-	public String getBrdhit() {
-		return brdhit;
-	}
+  public void setBrddate(String brddate)
+  {
+    this.brddate = brddate;
+  }
 
-	public void setBrdhit(String brdhit) {
-		this.brdhit = brdhit;
-	}
+  public String getBrdhit()
+  {
+    return brdhit;
+  }
 
-	public String getBrddeleteflag() {
-		return brddeleteflag;
-	}
+  public void setBrdhit(String brdhit)
+  {
+    this.brdhit = brdhit;
+  }
 
-	public void setBrddeleteflag(String brddeleteflag) {
-		this.brddeleteflag = brddeleteflag;
-	}
+  public String getBrddeleteflag()
+  {
+    return brddeleteflag;
+  }
+
+  public void setBrddeleteflag(String brddeleteflag)
+  {
+    this.brddeleteflag = brddeleteflag;
+  }
 
 }

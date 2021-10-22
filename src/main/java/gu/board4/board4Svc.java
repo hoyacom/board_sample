@@ -15,62 +15,72 @@ import gu.common.FileVO;
 import gu.common.SearchVO;
 
 @Service
-public class board4Svc {
+public class board4Svc
+{
 
-	@Autowired
-	private SqlSessionTemplate sqlSession;	
-	@Autowired
-	private DataSourceTransactionManager txManager;
-		
-    public Integer selectBoardCount(SearchVO param) throws Exception {
-		return sqlSession.selectOne("selectBoard4Count", param);
+  @Autowired
+  private SqlSessionTemplate           sqlSession;
+  @Autowired
+  private DataSourceTransactionManager txManager;
+
+  public Integer selectBoardCount(SearchVO param) throws Exception
+  {
+    return sqlSession.selectOne("selectBoard4Count", param);
+  }
+
+  public List<?> selectBoardList(SearchVO param) throws Exception
+  {
+    return sqlSession.selectList("selectBoard4List", param);
+  }
+
+  public void insertBoard(boardVO param, List<FileVO> filelist, String[] fileno) throws Exception
+  {
+
+    DefaultTransactionDefinition def = new DefaultTransactionDefinition();
+    def.setPropagationBehavior(TransactionDefinition.PROPAGATION_REQUIRED);
+    TransactionStatus status = txManager.getTransaction(def);
+
+    try {
+      if (param.getBrdno() == null || "".equals(param.getBrdno()))
+        sqlSession.insert("insertBoard4", param);
+      else
+        sqlSession.update("updateBoard4", param);
+
+      if (fileno != null) {
+        HashMap p = new HashMap();
+        p.put("fileno", fileno);
+        sqlSession.insert("deleteBoard4File", p);
+      }
+
+      for (FileVO f : filelist) {
+        f.setParentPK(param.getBrdno());
+        sqlSession.insert("insertBoard4File", f);
+      }
+      txManager.commit(status);
+    } catch (Exception ex) {
+      txManager.rollback(status);
+      throw ex;
     }
-    public List<?> selectBoardList(SearchVO param) throws Exception {
-		return sqlSession.selectList("selectBoard4List", param);
-    }
-    
-    public void insertBoard(boardVO param, List<FileVO> filelist, String[] fileno) throws Exception {
-    	
-		DefaultTransactionDefinition def = new DefaultTransactionDefinition();
-		def.setPropagationBehavior(TransactionDefinition.PROPAGATION_REQUIRED);
-		TransactionStatus status = txManager.getTransaction(def);
-		
-		try{
-	    	if (param.getBrdno()==null || "".equals(param.getBrdno()))
-	    		 sqlSession.insert("insertBoard4", param);
-	    	else sqlSession.update("updateBoard4", param);
-	
-	    	if (fileno != null) {
-	    	    HashMap p = new HashMap();
-	    	    p.put("fileno", fileno) ;
-	    	    sqlSession.insert("deleteBoard4File", p);
-	    	}
-	    	
-	    	for (FileVO f : filelist) {
-	    		f.setParentPK(param.getBrdno());
-	   		 	sqlSession.insert("insertBoard4File", f);
-	    	}
-			txManager.commit(status);
-		} catch (Exception ex) {
-			txManager.rollback(status);
-			throw ex;
-		}	    	
-    }
- 
-    public boardVO selectBoardOne(String param) throws Exception {
-		return sqlSession.selectOne("selectBoard4One", param);
-    }
-    
-    public void updateBoard4Read(String param) throws Exception {
-		sqlSession.insert("updateBoard4Read", param);
-    }
-    
-    public void deleteBoardOne(String param) throws Exception {
-		sqlSession.delete("deleteBoard4One", param);
-    }
-    
-    public List<?> selectBoard4FileList(String param) throws Exception {
-		return sqlSession.selectList("selectBoard4FileList", param);
-    }
-    
+  }
+
+  public boardVO selectBoardOne(String param) throws Exception
+  {
+    return sqlSession.selectOne("selectBoard4One", param);
+  }
+
+  public void updateBoard4Read(String param) throws Exception
+  {
+    sqlSession.insert("updateBoard4Read", param);
+  }
+
+  public void deleteBoardOne(String param) throws Exception
+  {
+    sqlSession.delete("deleteBoard4One", param);
+  }
+
+  public List<?> selectBoard4FileList(String param) throws Exception
+  {
+    return sqlSession.selectList("selectBoard4FileList", param);
+  }
+
 }
