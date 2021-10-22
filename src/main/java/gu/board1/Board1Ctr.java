@@ -11,11 +11,11 @@ import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
 
 @Controller
-public class board1Ctr
+public class Board1Ctr
 {
 
   @Autowired
-  private board1Svc boardSvc;
+  private Board1Svc boardSvc;
 
   // 리스트
   @RequestMapping(value = "/board1List")
@@ -35,7 +35,7 @@ public class board1Ctr
   }
 
   @RequestMapping(value = "/board1Save")
-  public String boardSave(@ModelAttribute boardVO boardInfo) throws Exception
+  public String boardSave(@ModelAttribute BoardVO boardInfo) throws Exception
   {
 
     boardSvc.insertBoard(boardInfo);
@@ -50,7 +50,7 @@ public class board1Ctr
 
     String brdno = request.getParameter("brdno");
 
-    boardVO boardInfo = boardSvc.selectBoardOne(brdno);
+    BoardVO boardInfo = boardSvc.selectBoardOne(brdno);
 
     modelMap.addAttribute("boardInfo", boardInfo);
 
@@ -58,7 +58,7 @@ public class board1Ctr
   }
 
   @RequestMapping(value = "/board1UpdateSave")
-  public String board1UpdateSave(@ModelAttribute boardVO boardInfo) throws Exception
+  public String board1UpdateSave(@ModelAttribute BoardVO boardInfo) throws Exception
   {
 
     boardSvc.updateBoard(boardInfo);
@@ -73,7 +73,7 @@ public class board1Ctr
 
     String brdno = request.getParameter("brdno");
 
-    boardVO boardInfo = boardSvc.selectBoardOne(brdno);
+    BoardVO boardInfo = boardSvc.selectBoardOne(brdno);
 
     modelMap.addAttribute("boardInfo", boardInfo);
 

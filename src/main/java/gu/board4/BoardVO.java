@@ -1,11 +1,19 @@
-package gu.board3;
+package gu.board4;
+
+import java.util.List;
+
+import org.springframework.web.multipart.MultipartFile;
 
 import gu.common.utiletc;
 
-public class boardVO
+public class BoardVO
 {
 
-  private String brdno, brdtitle, brdwriter, brdmemo, brddate, brdhit, brddeleteflag;
+  private String              brdno, brdtitle, brdwriter, brdmemo, brddate, brdhit, brddeleteflag,
+      filecnt;
+
+  /* 첨부파일 */
+  private List<MultipartFile> uploadfile;
 
   /**
    * 게시물 제목을 글자수에 맞추어 자르기
@@ -83,6 +91,26 @@ public class boardVO
   public void setBrddeleteflag(String brddeleteflag)
   {
     this.brddeleteflag = brddeleteflag;
+  }
+
+  public List<MultipartFile> getUploadfile()
+  {
+    return uploadfile;
+  }
+
+  public void setUploadfile(List<MultipartFile> uploadfile)
+  {
+    this.uploadfile = uploadfile;
+  }
+
+  public String getFilecnt()
+  {
+    return filecnt;
+  }
+
+  public void setFilecnt(String filecnt)
+  {
+    this.filecnt = filecnt;
   }
 
 }

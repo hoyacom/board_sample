@@ -9,7 +9,7 @@ import org.springframework.stereotype.Service;
 import gu.common.SearchVO;
 
 @Service
-public class board3Svc
+public class Board3Svc
 {
 
   @Autowired
@@ -25,7 +25,7 @@ public class board3Svc
     return sqlSession.selectList("selectBoard3List", param);
   }
 
-  public void insertBoard(boardVO param) throws Exception
+  public void insertBoard(BoardVO param) throws Exception
   {
     if (param.getBrdno() == null || "".equals(param.getBrdno()))
       sqlSession.insert("insertBoard3", param);
@@ -33,7 +33,7 @@ public class board3Svc
       sqlSession.update("updateBoard3", param);
   }
 
-  public boardVO selectBoardOne(String param) throws Exception
+  public BoardVO selectBoardOne(String param) throws Exception
   {
     return sqlSession.selectOne("selectBoard3One", param);
   }

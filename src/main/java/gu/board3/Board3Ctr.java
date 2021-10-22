@@ -12,11 +12,11 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import gu.common.SearchVO;
 
 @Controller
-public class board3Ctr
+public class Board3Ctr
 {
 
   @Autowired
-  private board3Svc boardSvc;
+  private Board3Svc boardSvc;
 
   // 리스트
   @RequestMapping(value = "/board3List")
@@ -38,7 +38,7 @@ public class board3Ctr
   {
     String brdno = request.getParameter("brdno");
     if (brdno != null) {
-      boardVO boardInfo = boardSvc.selectBoardOne(brdno);
+      BoardVO boardInfo = boardSvc.selectBoardOne(brdno);
 
       modelMap.addAttribute("boardInfo", boardInfo);
     }
@@ -47,7 +47,7 @@ public class board3Ctr
   }
 
   @RequestMapping(value = "/board3Save")
-  public String boardSave(boardVO boardInfo) throws Exception
+  public String boardSave(BoardVO boardInfo) throws Exception
   {
 
     boardSvc.insertBoard(boardInfo);
@@ -63,7 +63,7 @@ public class board3Ctr
     String brdno = request.getParameter("brdno");
 
     boardSvc.updateBoard3Read(brdno);
-    boardVO boardInfo = boardSvc.selectBoardOne(brdno);
+    BoardVO boardInfo = boardSvc.selectBoardOne(brdno);
 
     modelMap.addAttribute("boardInfo", boardInfo);
 

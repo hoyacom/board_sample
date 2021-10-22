@@ -1,9 +1,9 @@
-package gu.board1;
+package gu.board2;
 
-public class boardVO
+public class BoardVO
 {
 
-  private String brdno, brdtitle, brdwriter, brdmemo, brddate;
+  private String brdno, brdtitle, brdwriter, brdmemo, brddate, brdhit, brddeleteflag;
 
   public String getBrdno()
   {
@@ -53,6 +53,26 @@ public class boardVO
   public void setBrddate(String brddate)
   {
     this.brddate = brddate;
+  }
+
+  public String getBrdhit()
+  {
+    return brdhit;
+  }
+
+  public void setBrdhit(String brdhit)
+  {
+    this.brdhit = brdhit;
+  }
+
+  public String getBrddeleteflag()
+  {
+    return brddeleteflag;
+  }
+
+  public void setBrddeleteflag(String brddeleteflag)
+  {
+    this.brddeleteflag = brddeleteflag;
   }
 
 }

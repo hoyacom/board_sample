@@ -15,7 +15,7 @@ import gu.common.FileVO;
 import gu.common.SearchVO;
 
 @Service
-public class board4Svc
+public class Board4Svc
 {
 
   @Autowired
@@ -33,7 +33,7 @@ public class board4Svc
     return sqlSession.selectList("selectBoard4List", param);
   }
 
-  public void insertBoard(boardVO param, List<FileVO> filelist, String[] fileno) throws Exception
+  public void insertBoard(BoardVO param, List<FileVO> filelist, String[] fileno) throws Exception
   {
 
     DefaultTransactionDefinition def = new DefaultTransactionDefinition();
@@ -63,7 +63,7 @@ public class board4Svc
     }
   }
 
-  public boardVO selectBoardOne(String param) throws Exception
+  public BoardVO selectBoardOne(String param) throws Exception
   {
     return sqlSession.selectOne("selectBoard4One", param);
   }

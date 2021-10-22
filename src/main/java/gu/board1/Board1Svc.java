@@ -7,7 +7,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 @Service
-public class board1Svc
+public class Board1Svc
 {
 
   @Autowired
@@ -18,17 +18,17 @@ public class board1Svc
     return sqlSession.selectList("selectBoard1List");
   }
 
-  public void insertBoard(boardVO param) throws Exception
+  public void insertBoard(BoardVO param) throws Exception
   {
     sqlSession.insert("insertBoard1", param);
   }
 
-  public void updateBoard(boardVO param) throws Exception
+  public void updateBoard(BoardVO param) throws Exception
   {
     sqlSession.insert("updateBoard1", param);
   }
 
-  public boardVO selectBoardOne(String param) throws Exception
+  public BoardVO selectBoardOne(String param) throws Exception
   {
     return sqlSession.selectOne("selectBoard1One", param);
   }

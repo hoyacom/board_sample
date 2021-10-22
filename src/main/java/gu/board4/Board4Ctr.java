@@ -14,11 +14,11 @@ import gu.common.FileVO;
 import gu.common.SearchVO;
 
 @Controller
-public class board4Ctr
+public class Board4Ctr
 {
 
   @Autowired
-  private board4Svc boardSvc;
+  private Board4Svc boardSvc;
 
   // 리스트
   @RequestMapping(value = "/board4List")
@@ -40,7 +40,7 @@ public class board4Ctr
   {
     String brdno = request.getParameter("brdno");
     if (brdno != null) {
-      boardVO boardInfo = boardSvc.selectBoardOne(brdno);
+      BoardVO boardInfo = boardSvc.selectBoardOne(brdno);
       List<?> listview = boardSvc.selectBoard4FileList(brdno);
 
       modelMap.addAttribute("boardInfo", boardInfo);
@@ -51,7 +51,7 @@ public class board4Ctr
   }
 
   @RequestMapping(value = "/board4Save")
-  public String boardSave(HttpServletRequest request, boardVO boardInfo) throws Exception
+  public String boardSave(HttpServletRequest request, BoardVO boardInfo) throws Exception
   {
     String[] fileno = request.getParameterValues("fileno");
 
@@ -71,7 +71,7 @@ public class board4Ctr
     String brdno = request.getParameter("brdno");
 
     boardSvc.updateBoard4Read(brdno);
-    boardVO boardInfo = boardSvc.selectBoardOne(brdno);
+    BoardVO boardInfo = boardSvc.selectBoardOne(brdno);
     List<?> listview = boardSvc.selectBoard4FileList(brdno);
 
     modelMap.addAttribute("boardInfo", boardInfo);
